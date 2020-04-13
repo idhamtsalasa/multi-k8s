@@ -9,14 +9,14 @@ script:
  - docker run -e CI=true idhamtsalasa/react-test npm test
 
 after_success:
- - docker build -t idhamtsalasa/multi-client ./client
- - docker build -t idhamtsalasa/multi-nginx ./nginx
- - docker build -t idhamtsalasa/multi-server ./server
- - docker build -t idhamtsalasa/multi-worker ./worker
+ - docker build -t archvalkryn/multi-client ./client
+ - docker build -t archvalkryn/multi-nginx ./nginx
+ - docker build -t archvalkryn/multi-server ./server
+ - docker build -t archvalkryn/multi-worker ./worker
 # login to docker CLI
  - echo "%DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # take those images and push them to docker hub
- - docker push idhamtsalasa/multi-client
- - docker push idhamtsalasa/multi-nginx
- - docker push idhamtsalasa/multi-server
- - docker push idhamtsalasa/multi-worker
+ - docker push archvalkryn/multi-client
+ - docker push archvalkryn/multi-nginx
+ - docker push archvalkryn/multi-server
+ - docker push archvalkryn/multi-worker
